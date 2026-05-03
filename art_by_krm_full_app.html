@@ -689,7 +689,7 @@ async function getAIResponse(userMsg){
       ? `Current product: ${window.currentProduct.name}, type: ${window.currentProduct.cat}, style: ${window.currentProduct.tag}, dominant color: ${window.currentProduct.colorRgb || 'unknown'}. User wants: ${userMsg}`
       : userMsg;
     
-    const res=await fetch('http://127.0.0.1:5000/api/chat',{
+   fetch('http://127.0.0.1:5000/api/generate-image',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
@@ -729,7 +729,8 @@ async function generateFashionImage(prompt){
   msgs.scrollTop=msgs.scrollHeight;
   
   try{
-    const res=await fetch('http://127.0.0.1:5000/api/generate-image',{
+  const res=await fetch('https://artbykrm-backend-production.up.railway.app/api/generate-image',
+  {
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({prompt})
