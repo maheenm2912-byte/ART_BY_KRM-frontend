@@ -689,7 +689,7 @@ async function getAIResponse(userMsg){
       ? `Current product: ${window.currentProduct.name}, type: ${window.currentProduct.cat}, style: ${window.currentProduct.tag}, dominant color: ${window.currentProduct.colorRgb || 'unknown'}. User wants: ${userMsg}`
       : userMsg;
     
-   fetch('http://127.0.0.1:5000/api/generate-image',{
+const res = await fetch('https://artbykrm-backend-production.up.railway.app/api/chat',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
